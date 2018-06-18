@@ -6,7 +6,10 @@
 
 ### PROJECT SETUP
 
-Download the zip or pull the repo in your local. Copy the folder "webuy" in your root `localhost:8888/webuy/..`
+Download the zip or pull the repo in your local. Copy the folder "webuy" in your root `localhost:8888/webuy/..`. 
+
+    MAKE SURE '644' or '777' PERMISSION GIVEN TO `/webservice/uploads` DIRECTORY
+
 
 The default port address used is `:8888` if you want to change the port address then modify the following pages.
 * cms/application/config/config.php `change ['base_url] value`
@@ -26,6 +29,7 @@ Frontend Website is made such a way that if you want to set the host address of 
  ##### INSTALL NODE DEPENDENCIES:
  
 `cd /website && npm install`
+
 
  ### DATABASE SETUP
  Import the `webuy.sql` file which is in /webuy to your local MySQL database 
