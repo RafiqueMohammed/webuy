@@ -1,0 +1,27 @@
+<div *ngIf="UILoaded">
+  <div class="card" *ngIf="productExist">
+    <img class="card-img-top" [src]="getImageURL(product.product_image)">
+    <div class="card-body">
+      <h5 class="card-title">{{product.product_title}}</h5>
+      <div class="text-info lead">Rs.{{product.product_price}} </div>
+      <div class="lead my-2">DESCRIPTION</div>
+      <p style="text-align:justify;" class="card-text" [innerHTML]="product.product_description"></p>
+      <div class="btn btn-block btn-primary btn-raised" (click)="addToCart(product)">Add to cart</div>
+
+    </div>
+  </div>
+
+  <div class="card" *ngIf="!productExist">
+
+    <div class="card-body text-center">
+      <i class="material-icons text-danger display-3">warning</i>
+      <div class="display-4">Oops!</div>
+
+      <h4 class="card-text my-3">{{message}}</h4>
+
+    </div>
+  </div>
+  </div>
+  <div *ngIf="!UILoaded">
+      <div class="text-center" style="margin-top:50%"><i class="material-icons text-primary display-3 spin">toys</i></div>
+  </div>

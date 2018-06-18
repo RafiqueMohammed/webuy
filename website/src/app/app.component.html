@@ -1,0 +1,36 @@
+<div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+        <header class="bmd-layout-header">
+          <div class="navbar navbar-dark bg-primary">
+            <button class="navbar-toggler text-light" type="button" data-toggle="drawer" data-target="#dw-p1">
+              <span class="sr-only">Open Menu</span>
+              <i class="material-icons">menu</i>
+            </button>
+            <a class="navbar-brand text-light">{{pageName|slice:0:20}}</a>
+            <ul class="nav navbar-nav">
+              <li class="nav-item">
+                  <a [routerLink]="['/checkout']" routerLinkActive="active"  class="btn btn-sm my-0 text-light">
+                    <i class="material-icons">
+                        shopping_cart
+                        </i>
+                        <span class="badge badge-danger">{{cartCount}}</span>
+                      </a>
+                  </li>
+            </ul>
+          </div>
+        </header>
+        <div id="dw-p1" class="bmd-layout-drawer bg-faded">
+          <header class="p-2">
+            <a [routerLink]="['/']" routerLinkActive="active" class="navbar-brand1">
+              <button class=" btn btn-primary btn-block" data-target="#dw-p1" data-toggle="drawer" type="button">    
+                  <small class="material-icons">home</small></button></a>
+          </header>
+          <ul class="list-group p-1" *ngIf="categories.length>0">
+            <a [routerLink]="['/'+category.category_name]" routerLinkActive="active"  class="list-group-item1" *ngFor="let category of categories"><button class=" btn btn-primary btn-block text-left" data-target="#dw-p1" data-toggle="drawer" type="button">{{category.category_name}}</button></a>
+          </ul>
+        </div>
+        <main class="bmd-layout-content">
+                <router-outlet></router-outlet>
+        </main>
+      </div>
+ 
+

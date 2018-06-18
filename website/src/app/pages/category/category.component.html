@@ -1,0 +1,30 @@
+<div *ngIf="UILoaded; else shellTemplate">
+  <div class="container-fluid">
+  <div *ngIf="products.length > 0;else noProduct"> 
+  <a [routerLink]="[product.url]" routerLinkActive="router-link-active" *ngFor="let product of products; let i = index">
+    <div class="card my-3" >
+    <img class="card-img-top" [src]="getImageURL(product.product_image)" alt="title">
+    <div class="card-body">
+        <h5 class="card-title">{{product.product_title}}</h5>
+        <div class="text-info lead">Rs.{{product.product_price}} </div>
+      <p class="card-text">{{product.product_description|slice:0:100}}..</p>
+    </div>
+  </div>
+  </a>
+  </div>
+  <ng-template #noProduct class="display-4 text-center">Oops! <br/>No product available</ng-template>
+     
+  </div>
+  </div>
+  <ng-template #shellTemplate>
+    <div class="card m-3" >
+      <div class="card-img-top" style="background: #ccc;height: 180px;"></div>
+      <div class="card-body">
+        <h5 class="card-title" style="background: #ccc;height: 30px;"></h5>
+        <p class="card-text" style="background: #ccc;height: 15px;"></p>
+        <p class="card-text" style="background: #ccc;height: 15px;"></p>
+        <p class="card-text" style="background: #ccc;height: 15px;"></p>
+      
+      </div>
+    </div>
+  </ng-template>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>WeBuy | Buy anything, anywhere</title>
+  <base href="/">
+  <meta name="theme-color" content="#009688">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script type="text/javascript">
+  function asyncStyle(url){
+    var _css = document.createElement('link');
+    _css.rel = 'stylesheet';
+    _css.href = url;
+    _css.type = 'text/css';
+    var godefer = document.getElementsByTagName('link')[0];
+    godefer.parentNode.insertBefore(_css, godefer);
+  }
+  asyncStyle("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons");
+  asyncStyle("https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css");
+
+    function whenLoad() {
+      document.getElementById("appshell").remove();
+      document.getElementById("layout").style="";
+    }
+
+  </script>
+  <style>
+    html body {
+      background: #eeeeee;
+      margin:0;
+      padding: 0;
+    }
+    #appshell .toolbar {
+      height: 58px;
+      background: #009688;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif
+
+    }
+
+    #appshell .toolbar span {
+
+      color: #ffffff;
+      font-size: 1.3em;
+    }
+
+    #appshell .slider {
+      height: 180px;
+      background: #cccccc;
+    }
+
+    #appshell .mcard {
+      margin: 12px;
+      border-radius: .125rem;
+      background: #ffffff;
+      height: 350px;
+      border: 0;
+      box-shadow: 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+      -webkit-box-shadow: 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    }
+
+    #appshell .mcard>.img {
+      height: 160px;
+      background: #dddddd;
+    }
+#appshell .text-shade{
+background: #dddddd;
+margin: 12px;
+border-radius: 2px;
+}
+#appshell .md{
+  height:15px
+}
+#appshell .price{
+  background: #009688;
+  margin: 12px;
+width:40%;
+border-radius: 30px; 
+}
+#appshell .lg{
+  height:35px
+}
+  </style>
+</head>
+
+<body onload="whenLoad()">
+  <div id="appshell">
+    <div class="toolbar">
+      <span>WeBuy Online</span>
+    </div>
+    <div class="slider"></div>
+    <div class="mcard">
+      <div class="img"></div>
+      <div class="text-shade lg"></div>
+      <div class="price lg"></div>
+      <div class="text-shade md"></div>
+      <div class="text-shade md"></div>
+    </div>
+  </div>
+  <app-root style="display:none" id="layout"></app-root>
+</body>
+
+</html>

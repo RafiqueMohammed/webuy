@@ -1,0 +1,69 @@
+<div class="container-fluid" *ngIf="!display.show;else displayBox">
+  <div *ngIf="mycart.length>0;else emptyCart">
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title">Your Cart ( {{mycart.length}} )</h5>
+        <ul class="list-group list-group-flush">
+          <li *ngFor="let product of mycart" class="list-group-item d-flex justify-content-between">
+            <a class="m-0" [routerLink]="[product.url]">{{product.product_title |slice:0:30}}</a>
+            <button (click)="removeProduct(product)" type="button" class="m-0 btn btn-danger bmd-btn-fab bmd-btn-fab-sm">
+              <i class="material-icons m-0">close</i>
+            </button>
+          </li>
+        </ul>
+        <button (click)="placeOrder()" class="btn btn-primary float-right btn-raised">Ok, Place order</button>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<ng-template #emptyCart>
+  <div class="text-center mt-3 text-muted middle">
+    <span>
+      <i class="material-icons display-3">sentiment_very_dissatisfied</i>
+    </span>
+    <h4 class="">Your cart is empty</h4>
+    <a [routerLink]="['/']" class="text-primary">SHOP NOW</a>
+  </div>
+</ng-template>
+
+<ng-template #displayBox>
+  <div *ngIf="display.type=='success'">
+    <div class="card">
+      <div class="card-body text-center">
+        <i class="material-icons text-success display-3">check_circle_outline</i>
+        <div class="display-4">Thank you!</div>
+
+        <p class="card-text my-3">Your order has been successfully placed</p>
+
+      </div>
+    </div>
+  </div>
+  <div *ngIf="display.type=='info'">
+    <div class="card">
+      <div class="card-body text-center">
+        <i class="material-icons text-primary display-3 spin">toys</i>
+        <div class="display-4">Please wait..</div>
+
+        <h4 class="card-text my-3">Your order is being placed.</h4>
+
+      </div>
+    </div>
+  </div>
+  <div *ngIf="display.type=='error'">
+    <div class="card">
+
+      <div class="card-body text-center">
+        <i class="material-icons text-danger display-3">highlight_off</i>
+        <div class="display-4">Oops!</div>
+
+        <h4 class="card-text my-3">{{display.msg}}</h4>
+        <div class="card-text">
+          <button (click)='clearDisplay()' class="btn btn-primary">CLOSE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
