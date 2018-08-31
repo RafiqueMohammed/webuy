@@ -1,4 +1,4 @@
-# FULL STACK BASIC ECOM
+# FULL-STACK BASIC ECOM PWA(Progressive Web App)
 ### PROJECT DIRECTORIES
 * cms `(Admin panel) In PHP using Code Igniter Framework`
 * webservice `In PHP using Slim Framework`
